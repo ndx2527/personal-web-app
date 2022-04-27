@@ -41,7 +41,7 @@
 		}, {
 			"path": "pages/index/map/Sociology-news",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "社会新闻",
 				"enablePullDownRefresh": false
 			}
 		}, {
