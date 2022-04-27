@@ -3,7 +3,7 @@
 		<view class="" v-for="(item,index) in list" :key="index">
 			<navigator class="set-li" :url="item.url">
 				<view>
-					<u-icon name="calendar" color="#0faeff" size="28"></u-icon>
+					<u-icon name="calendar" color="#d81e06" size="28"></u-icon>
 					<text>{{item.name}}</text>
 				</view>
 				<u-icon name="arrow-right" color="#858585" size="28"></u-icon>
@@ -73,6 +73,7 @@
 			display: flex;
 			justify-content: space-between;
 			font-size: 28rpx;
+			// color: $u-theme;
 
 			text {
 				margin: 30rpx;
