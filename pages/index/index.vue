@@ -17,25 +17,29 @@
 		data() {
 			return {
 				list: [{
-						name: "社会新闻",
-						url: "./map/Sociology-news"
-					},
-					{
-						name: "百科题库",
-						url: "./map/wiki-subject"
+						name: "今日头条新闻",
+						url: "./map/today-news"
 					},
 					{
 						name: "IT资讯",
 						url: "./map/IT-news"
 					},
 					{
-						name: "今日头条新闻",
-						url: "./map/today-news"
+						name: "社会新闻",
+						url: "./map/Sociology-news"
 					},
 					{
-						name: "垃圾分类新闻",
-						url: "./map/rubbish-news"
+						name: "互联网资讯",
+						url: "./map/internet-news"
 					},
+					{
+						name: "NBA新闻",
+						url: "./map/NBA-news"
+					},
+					// {
+					// 	name: "垃圾分类新闻",
+					// 	url: "./map/rubbish-news"
+					// },
 					{
 						name: "周公解梦",
 						url: "./map/zhou-dreams"
@@ -48,9 +52,10 @@
 						name: "经典台词",
 						url: "./map/classic-lines"
 					},
+
 					{
-						name: "互联网资讯",
-						url: "./map/internet-news"
+						name: "百科题库",
+						url: "./map/wiki-subject"
 					},
 				]
 			}

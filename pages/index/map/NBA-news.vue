@@ -16,7 +16,7 @@
 		},
 		methods: {
 			getTiandata() {
-				this.$u.get('http://api.tianapi.com/internet/index', {
+				this.$u.get('http://api.tianapi.com/nba/index', {
 					// 发送参数可以不填写
 					key: 'c498f8d96e8d9ad2368513957311caf3',
 					num: 10,

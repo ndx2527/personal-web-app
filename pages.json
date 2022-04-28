@@ -17,13 +17,13 @@
 		}, {
 			"path": "pages/index/map/IT-news",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "IT新闻",
 				"enablePullDownRefresh": false
 			}
 		}, {
 			"path": "pages/index/map/today-news",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "今日头条",
 				"enablePullDownRefresh": false
 			}
 		}, {
@@ -77,16 +77,23 @@
 		}, {
 			"path": "pages/index/map/internet-news",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "互联网资讯",
 				"enablePullDownRefresh": false
 			}
-		}, {
+		},
+		{
 			"path": "pages/article/other-url",
 			"style": {
 				"navigationBarTitleText": "新闻详情",
 				"enablePullDownRefresh": false
 			}
-
+		},
+		{
+			"path": "pages/index/map/NBA-news",
+			"style": {
+				"navigationBarTitleText": "NBA新闻",
+				"enablePullDownRefresh": false
+			}
 		}
 	],
 	"globalStyle": {
