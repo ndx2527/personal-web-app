@@ -36,10 +36,10 @@
 		onReachBottom() {
 			this.page++;
 			this.status = 'loading';
-			this.getTiandata()
-			// setTimeout(() => {
-			// 	this.getTiandata()
-			// }, 1000)
+			// this.getTiandata()
+			setTimeout(() => {
+				this.getTiandata()
+			}, 800)
 		}
 	}
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view v-for="(item,index) in newsList" :key="index">
-			<view class="card">
+			<view class="card" @click="goOtherPage('/pages/article/other-url',{url:item.url})">
 				<view class="card-text">
 					<view class="card-title">
 						{{item.title}}
@@ -15,7 +15,7 @@
 					<img :src="item.picUrl" alt="" width="120" height="100">
 				</view>
 			</view>
-			<u-line class="line" color="red" />
+			<u-line class="line" color="#c3c3c3" />
 		</view>
 	</view>
 </template>

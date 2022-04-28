@@ -9,7 +9,22 @@ App.mpType = 'app'
 import uView from 'uview-ui'
 Vue.use(uView);
 
+// 公共方法
+Vue.mixin({
+	methods: {
+		//去其他页面
+		goOtherPage(path, params = {}, animationType = "pop-in") {
+			this.$u.route({
+				url: path,
+				params,
+				animationType
+			})
+		},
+	},
+});
+
+
 const app = new Vue({
-    ...App
+	...App
 })
 app.$mount()
