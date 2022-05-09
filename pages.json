@@ -47,7 +47,7 @@
 		}, {
 			"path": "pages/index/map/wiki-subject",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "百科问答",
 				"enablePullDownRefresh": false
 			}
 		}, {

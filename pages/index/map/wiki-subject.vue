@@ -5,9 +5,7 @@
 				题目:
 			</view>
 			<view class="header-text">
-				新冠肺炎的最长潜伏期一般是多久？
-				新冠肺炎的最长潜伏期一般是多久？
-				新冠肺炎的最长潜
+				{{question.title}}
 			</view>
 		</view>
 		<view class="card">
@@ -18,42 +16,70 @@
 			<view class="card-answer">
 				<view class="card-answerLi">
 					<view class="card-answerNum">A</view>
-					<view class="card-text">1-2天</view>
+					<view class="card-text">{{question.answerA}}</view>
 				</view>
 				<view class="card-answerLi">
 					<view class="card-answerNum">B</view>
-					<view class="">3-7天</view>
+					<view class="card-text">{{question.answerB}}</view>
 				</view>
 				<view class="card-answerLi">
 					<view class="card-answerNum">C</view>
-					<view class="">14天</view>
+					<view class="card-text">{{question.answerC}}</view>
 				</view>
 				<view class="card-answerLi">
 					<view class="card-answerNum">D</view>
-					<view class="">28天</view>
+					<view class="card-text">{{question.answerD}}</view>
 				</view>
 			</view>
 		</view>
 		<view class="analysis">
-			解析：新型冠状病毒感染性肺炎属于呼吸道传播性疾病，该病一般最常见的传播途径有飞沫传播，气溶胶传播，粪口传播及眼部粘膜传播，潜伏期一般为3-5天，最长不超过14天左右，也有因人而异，超过以上天数。或许以无症状感染者，不发病。该病确诊有赖于核酸病毒检测，同时做好多饮水，勤洗手，出门戴口罩，避免人群聚集，导致交叉感染。
+			<text>答案：{{question.answer}}</text>
+			<br>
+			<text>解析：{{question.analytic?question.analytic:'无'}}</text>
 		</view>
 
 		<view class="bottom-button">
 			<u-button type="primary" plain>查看解析</u-button>
-			<u-button type="error" plain>下一题</u-button>
+			<u-button type="error" plain @click="nextQuestion">下一题</u-button>
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		// 点击以后锁定状态
+		// 正确答案为绿色，如果选错，你选的答案为红色，然后答题状态改为true
 		data() {
 			return {
-
+				question: {
+					analytic: "",
+					answer: "",
+					answerA: "",
+					answerB: "",
+					answerC: "",
+					answerD: "",
+					title: "",
+				},
+				state: false, // 记录答题状态，true为已经答题
 			}
 		},
+		onLoad() {
+			this.getTiandata()
+		},
 		methods: {
-
+			getTiandata() {
+				this.$u.get('http://api.tianapi.com/baiketiku/index', {
+					// 发送参数可以不填写
+					key: 'c498f8d96e8d9ad2368513957311caf3',
+				}).then(res => {
+					this.question = res.newslist[0];
+					console.log(res);
+					console.log(this.question);
+				});
+			},
+			nextQuestion() {
+				this.getTiandata()
+			}
 		}
 	}
 </script>
@@ -126,6 +152,7 @@
 
 					.card-text {
 						color: $u-content-color;
+						width: 540rpx;
 					}
 				}
 			}
@@ -139,13 +166,13 @@
 			right: 50rpx;
 		}
 
-		.analysis {
+		.analysis{
 			padding: 0rpx 40rpx;
 			padding-bottom: 200rpx;
 			color: $u-content-color;
 			font-size: 32rpx;
 			line-height: 1.8;
-			text-indent: 2em;
+			// text-indent: 2em;
 		}
 	}
 </style>
