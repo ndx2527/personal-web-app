@@ -14,32 +14,36 @@
 			</view>
 			<view class="card-line"></view>
 			<view class="card-answer">
-				<view class="card-answerLi">
+				<view class="card-answerLi" :class="{ error:choose=='A',correct: question.answer=='A'&&state}"
+					@click="chooseAnswer('A')">
 					<view class="card-answerNum">A</view>
 					<view class="card-text">{{question.answerA}}</view>
 				</view>
-				<view class="card-answerLi">
+				<view class="card-answerLi" :class="{  error:choose=='B',correct: question.answer=='B'&&state}"
+					@click="chooseAnswer('B')">
 					<view class="card-answerNum">B</view>
 					<view class="card-text">{{question.answerB}}</view>
 				</view>
-				<view class="card-answerLi">
+				<view class="card-answerLi" :class="{  error:choose=='C',correct: question.answer=='C'&&state}"
+					@click="chooseAnswer('C')">
 					<view class="card-answerNum">C</view>
 					<view class="card-text">{{question.answerC}}</view>
 				</view>
-				<view class="card-answerLi">
+				<view class="card-answerLi" :class="{  error:choose=='D',correct: question.answer=='D'&&state}"
+					@click="chooseAnswer('D')">
 					<view class="card-answerNum">D</view>
 					<view class="card-text">{{question.answerD}}</view>
 				</view>
 			</view>
 		</view>
-		<view class="analysis">
+		<view class="analysis" v-if="parsing">
 			<text>答案：{{question.answer}}</text>
 			<br>
 			<text>解析：{{question.analytic?question.analytic:'无'}}</text>
 		</view>
 
 		<view class="bottom-button">
-			<u-button type="primary" plain>查看解析</u-button>
+			<u-button type="primary" plain @click='lookParsing'>查看解析</u-button>
 			<u-button type="error" plain @click="nextQuestion">下一题</u-button>
 		</view>
 	</view>
@@ -61,12 +65,15 @@
 					title: "",
 				},
 				state: false, // 记录答题状态，true为已经答题
+				choose: '', // 你选择的答案
+				parsing: false, // 解析开关
 			}
 		},
 		onLoad() {
 			this.getTiandata()
 		},
 		methods: {
+			// 发送请求，获取数据
 			getTiandata() {
 				this.$u.get('http://api.tianapi.com/baiketiku/index', {
 					// 发送参数可以不填写
@@ -77,8 +84,25 @@
 					console.log(this.question);
 				});
 			},
+			// 点击下一题
 			nextQuestion() {
+				this.state = false; // 答题状态改为false
+				this.choose = '' // 选择的答案置空
+				this.parsing = false;
 				this.getTiandata()
+			},
+			// 点击选择答案
+			chooseAnswer(value) {
+				if (!this.state) {
+					this.state = true;
+					this.choose = value;
+				}
+			},
+			// 查看解析
+			lookParsing() {
+				if (this.state) {
+					this.parsing = true;
+				}
 			}
 		}
 	}
@@ -138,6 +162,9 @@
 					display: flex;
 					align-items: center;
 					padding: 15rpx 10rpx;
+					margin: 3px 0;
+					box-sizing: border-box;
+					border: solid rgb(255, 255, 255) 1px;
 
 					.card-answerNum {
 						background-color: rgb(158, 152, 154);
@@ -164,15 +191,32 @@
 			bottom: 35rpx;
 			left: 50rpx;
 			right: 50rpx;
+			justify-content: space-around;
 		}
 
-		.analysis{
+		.analysis {
 			padding: 0rpx 40rpx;
 			padding-bottom: 200rpx;
 			color: $u-content-color;
 			font-size: 32rpx;
 			line-height: 1.8;
 			// text-indent: 2em;
+		}
+
+		// 回答错误
+		.error {
+			border: solid rgb(255, 0, 0) 1px !important;
+			background-color: rgba(255, 0, 0, 0.1);
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		// 正确答案
+		.correct {
+			background-color: rgba(34, 193, 31, 0.1);
+			border: solid rgb(34, 193, 31) 1px !important;
+			border-radius: 4px;
+			box-sizing: border-box;
 		}
 	}
 </style>
