@@ -7,7 +7,7 @@
 			</text>
 		</view>
 		<view class="link-demo">
-			<u-link :color="$u.color['primary']" :under-line="true" href="http://www.uviewui.com">Link超链接组件演示</u-link>
+			<!-- <u-link :color="$u.color['primary']" :under-line="true" href="http://www.uviewui.com">Link超链接组件演示</u-link> -->
 		</view>
 	</view>
 </template>

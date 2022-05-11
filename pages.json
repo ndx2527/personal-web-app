@@ -65,7 +65,7 @@
 		}, {
 			"path": "pages/index/map/stand-last",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "一站到底",
 				"enablePullDownRefresh": false
 			}
 		}, {

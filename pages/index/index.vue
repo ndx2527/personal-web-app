@@ -40,19 +40,18 @@
 					// 	name: "垃圾分类新闻",
 					// 	url: "./map/rubbish-news"
 					// },
-					{
-						name: "周公解梦",
-						url: "./map/zhou-dreams"
-					},
-					{
-						name: "一站到底",
-						url: "./map/stand-last"
-					},
-					{
-						name: "经典台词",
-						url: "./map/classic-lines"
-					},
-
+					// {
+					// 	name: "周公解梦",
+					// 	url: "./map/zhou-dreams"
+					// },
+					// {
+					// 	name: "一站到底",
+					// 	url: "./map/stand-last"
+					// },
+					// {
+					// 	name: "经典台词",
+					// 	url: "./map/classic-lines"
+					// },
 					{
 						name: "百科题库",
 						url: "./map/wiki-subject"
